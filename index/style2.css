@@ -1,0 +1,204 @@
+body {
+    background: black;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 2500px;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+.texto {
+    position: absolute;
+    color: #ffffff;
+    font-size: 60px;
+    font-family: 'bebas neue', sans-serif;
+    text-align: center;
+    z-index: 1000;
+    animation: brillar 2s ease-in-out infinite;
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation-play-state: paused;  /* Pausa la animación al inicio */
+}
+
+
+
+.pista {
+    position: relative;
+    width: 100vw;
+    height: 400px;
+    transform-style: preserve-3d;
+}
+
+.corazon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    border-right: 4px solid #ff3366;
+    border-bottom: 4px solid #ff3366;
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: moverAdelante 4s linear infinite;
+    filter: drop-shadow(0 0 8px #ff3366);
+    animation-play-state: paused;  /* Pausa la animación al inicio */
+}
+
+.corazon::before {
+    content: "";
+    position: absolute;
+    top: -44px;
+    left: -4px;
+    border-left: 4px solid #ff3366;
+    border-top: 4px solid #ff3366;
+    border-right: 4px solid #ff3366;
+    height: 40px;
+    width: 60px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.corazon::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -40px;
+    border-top: 4px solid #ff3366;
+    border-left: 4px solid #ff3366;
+    border-bottom: 4px solid #ff3366;
+    width: 36px;
+    height: 60px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+
+.corazon:nth-child(1) { animation-delay: 0s; }
+.corazon:nth-child(2) { animation-delay: 1s; }
+.corazon:nth-child(3) { animation-delay: 2s; }
+.corazon:nth-child(4) { animation-delay: 3s; }
+
+@keyframes moverAdelante {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(0.2) translateZ(-2500px);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(4) translateZ(1000px);
+        opacity: 0;
+    }
+}
+
+/* Estilo de las partículas */
+.particula-corazon {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border-right: 2px solid #ff0000;
+    border-bottom: 2px solid #ff0000;
+    transform: rotate(45deg);
+    pointer-events: none;
+    filter: drop-shadow(0 0 4px #ff0000);
+}
+
+.particula-corazon::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: -2px;
+    border-left: 2px solid #ff0000;
+    border-top: 2px solid #ff0000;
+    border-right: 2px solid #ff0000;
+    height: 14px;
+    width: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.particula-corazon::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -14px;
+    border-top: 2px solid #ff0000;
+    border-left: 2px solid #ff0000;
+    border-bottom: 2px solid #ff0000;
+    width: 14px;
+    height: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/* Estilo de los botones */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    bottom: 100px;
+}
+
+.btn {
+    padding: 15px 30px;
+    background-color: #153386;
+    color: white;
+    border: none;
+    font-family: sans-serif;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 15px #153386;
+}
+
+.btn:hover {
+    background-color: #153386;
+    transform: translateY(-5px);
+    box-shadow: 0 3px 30px #153386
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+.marca-de-agua {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    bottom: 10px;
+    text-align: center;
+    font-size: 12px;
+    z-index: 9999;
+    font-family: arial;
+    color: #fffdfd;
+    font-weight: 600;
+  }
+  .marca-de-agua i {
+    font-style: normal;
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+  }
+  .marca-de-agua a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .made-with-love a:hover {
+    text-decoration: underline;
+  }
+  .marca-de-agua .dribble img {
+    max-width: 100%;
+    width: 26px;
+    position: relative;
+    top: -2px;
+    vertical-align: middle;
+  }
